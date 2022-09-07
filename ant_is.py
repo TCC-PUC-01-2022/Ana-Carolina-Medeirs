@@ -156,12 +156,12 @@ def main():
     #dataframe = dataframe.drop(columns=[0, last_row])
     #num_instances = len(dataframe.index)
     start_time = time.time()
-    original_df = pd.read_csv("banana.csv", sep=';') 
+    original_df = pd.read_csv("transport.csv", sep=';') 
     
-    dataframe = pd.read_csv("banana.csv", sep=';')
+    dataframe = pd.read_csv("transport.csv", sep=';')
     
-    classes = dataframe["Class"]
-    dataframe = dataframe.drop(columns=["Class"])
+    classes = dataframe["revenu"]
+    dataframe = dataframe.drop(columns=["revenu"])
     initial_pheromone = 1
     Q = 1
     evaporation_rate = 0.1
@@ -172,7 +172,7 @@ def main():
     print(len(indices_selected))
     #print(indices_selected)
     reduced_dataframe = original_df.iloc[indices_selected]
-    reduced_dataframe.to_csv('Banana_reduzidos.csv', index=False)
+    reduced_dataframe.to_csv('Titanic_reduzido.csv', index=False)
     print("Execution finished")
     print("--- %s Hours ---" % ((time.time() - start_time)//3600))
     print("--- %s Minutes ---" % ((time.time() - start_time)//60))
